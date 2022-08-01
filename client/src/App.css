@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.App {
+  width: 90%;
+  margin: 0 auto;
+}
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar-button {
+  text-align: center;
+  font-size: x-large;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  width: 18%;
+}
+
+.modal {
+  background-color: red;
+  border: 5px solid black;
+}
+
+.reviews-display {
+  width: 80%;
+  margin: 0 auto;
+}
+.review-container {
+  background-color: blanchedalmond;
+  opacity: 1;
+  width: 100%
+}
+.rating {
+  background-color: inherit;
+}
+.half-icon {
+  position: relative;
+  background-color: inherit;
+}
+.half-icon-mask {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  opacity: 1;
+}
+
+
+@media (orientation: portrait) {
+  .navbar {
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .navbar-button {
+    width: 70%;
+    padding-bottom: 10px;
+  }
+}
