@@ -37,7 +37,13 @@ router.get('/page/:page', async (req, res) => {
     try {
         const page = parseInt(req.params.page, 10) || 1;
         const lastReviewIdx = await Review.countDocuments() - 1;
-        const reviewArray = await Review.find({}, null, {skip: lastReviewIdx - (page * 4 - 1), limit: 4})
+        let startIdx = lastReviewIdx - (page * 4 - 1);
+        let limit = 4;
+        if (startIdx < 0) {
+            limit -= -startIdx;
+            startIdx = 0;
+        }
+        const reviewArray = await Review.find({}, null, {skip: startIdx, limit: limit})
                                         .lean().populate('userid');
         res.status(200).json(reviewArray)
     } catch (err) {
