@@ -40,12 +40,18 @@ router.get('/page/:page', async (req, res) => {
         let startIdx = lastReviewIdx - (page * 4 - 1);
         let limit = 4;
         if (startIdx < 0) {
-            limit -= -startIdx;
+            limit += startIdx;
             startIdx = 0;
         }
-        const reviewArray = await Review.find({}, null, {skip: startIdx, limit: limit})
+        if (limit > 0) {
+            //console.log(startIdx, limit, lastReviewIdx);
+            const reviewArray = await Review.find({}, null, {skip: startIdx, limit: limit})
                                         .lean().populate('userid');
-        res.status(200).json(reviewArray)
+            res.status(200).json(reviewArray)
+        }
+        else {
+            res.status(200).json([]);
+        }
     } catch (err) {
         res.status(500).json({ message: err.message})
     }
