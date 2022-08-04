@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import FormInput from './FormInput.js'
 import RatingController from './RatingController.js'
 import FileInput from '../ImageLoader/FileInput.js'
@@ -12,6 +12,10 @@ const EditPostForm = ({close, review, setReviews}) => {
     const [imageSrc, setImageSrc] = useState(null);
 
     const URL = `/reviews/edit/${review._id}`;
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
 
     const getRatings = (ratings, icons) => {
         const newRatings = ratings.map((rating, idx) => {
@@ -53,23 +57,23 @@ const EditPostForm = ({close, review, setReviews}) => {
 
 
     return (
-        <div id="post-layout">
-            <form onSubmit={submitForm} encType="multipart/form-data" id="post-form-data">
+        <div id="post-layout" autofocus>
+            <form encType="multipart/form-data" id="post-form-data">
                 <fieldset>
-                    <h3>Post A Review</h3>
+                    <h3>Edit Review</h3>
                     <label htmlFor="title">Title</label><br/>
-                    <FormInput type="text" name="title" value={title} setter={setTitle} autocomplete="off"/>{title}<br/>
+                    <FormInput type="text" name="title" value={title} setter={setTitle} autocomplete="off"/><br/>
                     <label htmlFor="subtitle">Subtitle</label><br/>
-                    <FormInput type="text" name="subtitle" value={subtitle} setter={setSubtitle} autocomplete="off"/>{subtitle}<br/>
+                    <FormInput type="text" name="subtitle" value={subtitle} setter={setSubtitle} autocomplete="off"/><br/>
                     <label htmlFor="text">Text</label><br/>
-                    <FormInput type="text" name="text" value={text} setter={setText} autocomplete="off"/>{text}<br/>
+                    <FormInput type="textarea" name="text" value={text} setter={setText} autocomplete="off"/><br/>
                     <label htmlFor="rating">Rating </label>
                     <RatingController getRatings={getRatings} initRatings={review.ratings}/>
-                    <input type="submit" />
-                </fieldset>
+                    </fieldset>
             </form>
             <div></div><br/>
             <FileInput getImage={getImage} fileObj={review.image[0]}/>
+            <div className="done-button" onClick={submitForm}>Done</div>
         </div>
     )
 }

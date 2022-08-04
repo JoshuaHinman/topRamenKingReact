@@ -52,24 +52,26 @@ const CreatePostForm = ({close, setReviews, loggedIn}) => {
 
 
     return (
-        <div id="post-layout">
-            <form onSubmit={submitForm} encType="multipart/form-data" id="post-form-data">
-                <fieldset>
-                    <h3>Post A Review</h3>
-                    <label htmlFor="title">Title</label><br/>
-                    <FormInput type="text" name="title" value={title} setter={setTitle} autocomplete="off"/>{title}<br/>
-                    <label htmlFor="subtitle">Subtitle</label><br/>
-                    <FormInput type="text" name="subtitle" value={subtitle} setter={setSubtitle} autocomplete="off"/>{subtitle}<br/>
-                    <label htmlFor="text">Text</label><br/>
-                    <FormInput type="text" name="text" value={text} setter={setText} autocomplete="off"/>{text}<br/>
-                    <label htmlFor="rating">Rating </label>
-                    <RatingController getRatings={getRatings}/>
-                    <input type="submit" />
-                </fieldset>
-            </form>
-            <div></div><br/>
-            <FileInput getImage={getImage}/>
-        </div>
+         loggedIn.username ?
+            (<div id="post-layout">
+                <form encType="multipart/form-data" id="post-form-data">
+                    <fieldset>
+                        <h3>Post A Review</h3>
+                        <label htmlFor="title">Title</label><br/>
+                        <FormInput type="text" name="title" value={title} setter={setTitle} autocomplete="off"/><br/>
+                        <label htmlFor="subtitle">Subtitle</label><br/>
+                        <FormInput type="text" name="subtitle" value={subtitle} setter={setSubtitle} autocomplete="off"/><br/>
+                        <label htmlFor="text">Text</label><br/>
+                        <FormInput type="textarea" name="text" value={text} setter={setText} autocomplete="off"/><br/>
+                        <label htmlFor="rating">Rating </label>
+                        <RatingController getRatings={getRatings}/>
+                        </fieldset>
+                </form>
+                <div></div><br/>
+                <FileInput getImage={getImage}/>
+                <div className="done-button" onClick={submitForm}>Done</div>
+            </div>) : 
+            <h4>You need to login to post a review</h4>
     )
 }
 

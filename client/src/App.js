@@ -14,11 +14,27 @@ function App() {
   const [reviews, setReviews] = useState([]);
   const [editReview, setEditReview] = useState(null);
   const [scrollLoading, setScrollLoading] = useState(true);
+  const [flashMessage, setFlashMessage] = useState('');
+
 
    const onEdit = (review) => {
     setEditReview(review);
     console.log(editReview);
     openModal("edit-post-modal");
+   }
+
+   const onDelete = (reviewId) => {
+    fetch(`/reviews/delete/${reviewId}`, {method: 'post'})
+    .then(_ => {
+        //filter review with matching _id out of review array
+        setReviews(reviews.filter((review) => {
+          return (reviewId === review._id) ? false : true;
+        }));
+        //set flash message
+        setFlashMessage("Review Deleted");
+        closeModal("flash-message-modal");
+    })
+    .catch(err => console.log(err));
    }
    
     const openModal = (modal) => { ///////////////////// open and close model could be replaced with
@@ -34,8 +50,8 @@ function App() {
       <Title />
       {(loggedIn && loggedIn.username) && <p>Logged in as {loggedIn.username}</p>}
       <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} openModal={openModal}/>
-      <ModalDisplay activeModal={activeModal} closeModal={closeModal} loggedIn={loggedIn} setLoggedIn={setLoggedIn} reviews={reviews} setReviews={setReviews} editReview={editReview} setScrollLoading={setScrollLoading}/>
-      <ReviewsDisplay reviews={reviews} setReviews={setReviews} onEdit={onEdit} allowScrollLoading={scrollLoading} loggedIn={loggedIn}/>
+      <ModalDisplay flashMessage={flashMessage} setFlashMessage={setFlashMessage} activeModal={activeModal} closeModal={closeModal} loggedIn={loggedIn} setLoggedIn={setLoggedIn} reviews={reviews} setReviews={setReviews} editReview={editReview} setScrollLoading={setScrollLoading}/>
+      <ReviewsDisplay flashMessage={flashMessage} setFlashMessage={setFlashMessage} onDelete={onDelete} reviews={reviews} setReviews={setReviews} onEdit={onEdit} allowScrollLoading={scrollLoading} loggedIn={loggedIn}/>
     </div>
   );
 }

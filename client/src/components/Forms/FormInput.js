@@ -1,11 +1,13 @@
-const FormInput = (props) => {
+const FormInput = ({type, value, setter}) => {
 
     const syncInput = (event) => {
         event.preventDefault();
-        props.setter(event.target.value);
+        setter(event.target.value);
     }
     return (
-        <input type={props.type} value={props.value} onChange={syncInput}/>
+        (type === 'textarea') ?
+        <textarea value={value} onChange={syncInput}/> :
+        <input type={type} value={value} onChange={syncInput}/>
     )
 }
 

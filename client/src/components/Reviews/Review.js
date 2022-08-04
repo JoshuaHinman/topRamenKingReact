@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 const imgSrcString = (image) => {
     return `data:image/${image.contentType};base64, ${image.data.toString('base64')}`;
 }
@@ -8,7 +10,9 @@ const halfIcon = (icon, number) => {
     }
 }
 
-const Review = ({review, onclick, onEdit, loggedIn}) => {
+const Review = ({review, onclick, onEdit, onDelete, loggedIn}) => {
+    const [deleteClick, setDeleteClick] = useState(false);
+
     return (
             <div className="review-container">
                 <main>
@@ -27,15 +31,24 @@ const Review = ({review, onclick, onEdit, loggedIn}) => {
                                 })}
                         </div>
                         <h4 >{review.text}</h4>
+                        <p className="posted-by">Posted by {review.userid.username}</p>
+
                     </div>
-                    <p className="posted-by">Posted by {review.userid.username}</p>
                 </main>
-                <div className="edit-buttons">
-                    {(loggedIn && (loggedIn.username === review.userid.username)) &&
+                <div className="edit-ui">
+                    {loggedIn && (loggedIn.username === review.userid.username) &&
+                        (deleteClick === false ?
                         <>
-                            <div className="edit" onClick={()=> {onEdit(review)}}>Edit</div>
-                            <div className="delete" onClick={()=> {console.log('delete')}}>Delete</div>
-                        </>}
+                            <button className="edit-ui-button" onClick={()=> {setDeleteClick(true)}}>Delete</button>
+                            <button className="edit-ui-button" onClick={()=> {onEdit(review)}}>Edit</button>
+                        </> :
+                        <>
+                            <p>Delete this review?</p>
+                            <button className="edit-ui-button" onClick={() => {setDeleteClick(false)}}>No</button>
+                            <button className="edit-ui-button" onClick={() => {onDelete(review._id)}}>Yes</button>
+                        </>
+                        )
+                    }
                 </div>
             </div>
     )

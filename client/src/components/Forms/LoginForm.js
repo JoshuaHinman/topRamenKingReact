@@ -25,11 +25,11 @@ const LoginForm = (props) => {
 
     return ( 
       <form onSubmit={submitForm}>
-        <FormInput id="username" type="text" value={username} setter={setUsername} />
-        <p>{username}</p>
-        <FormInput id="password" type="text" value={password} setter={setPassword} />
-        <p>{password}</p>
-        <button type="submit">Submit</button>
+        <label htmlFor="username">Username</label><br/>
+        <FormInput id="username" name="username" type="text" value={username} setter={setUsername} /><br/>
+        <label htmlFor="password">Password</label><br/>
+        <FormInput id="password" name="password" type="password" value={password} setter={setPassword} /><br/>
+        <input type="submit" value="Submit"/>
       </form>
     );
 }

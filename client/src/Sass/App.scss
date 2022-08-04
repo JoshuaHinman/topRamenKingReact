@@ -39,6 +39,7 @@
 }
   
 .modal {
+  position: relative;
   background-color: whitesmoke;
   border: 5px solid black;
   width: 75%;
@@ -49,6 +50,63 @@
     font-size: 2rem;
     width:75%;
     margin: 0 auto;
+  }
+
+  input[type=password] {
+    font-size: 2rem;
+    width:75%;
+    margin: 0 auto;
+  }
+
+  input[type=submit] {
+    font-size: 1.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  input[type=button] {
+    font-size: 1.5rem;
+    min-width: 1.75rem;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  button {
+    font-size: 1.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .done-button {
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    text-align: center;
+    font-size: 3rem;
+    border: 2px solid yellow;
+    border-radius: 10px;
+    background-color: lightyellow;
+  }
+
+  textarea {
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    resize: none;
+    width: 75%;
+    height: 10rem;
+}
+
+  .x-button {
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: pink;
+    font-size: 1.75rem;
+    color: white;
+    width: 2rem;
+    text-align: center;
+    position: absolute;
+    top: .15rem;
+    right: .15rem;
   }
 
   .half-icon {
@@ -64,6 +122,25 @@
     opacity: 1;
   }
 }
+
+.photo-button {
+  margin: 0 auto;
+  text-align: center;
+  font-size: x-large;
+  border: 2px solid grey;
+  border-radius: 10px;
+  background-color: lightgrey;
+  color: black;
+}
+
+.image-loader {
+  margin: 0 auto;
+  width: 60%;
+}
+input[type=file] {
+  display: none;
+}
+
 
 .reviews-display {
   width: 100%;
@@ -99,23 +176,21 @@
       width: 600px;
     }
 
-    .posted-by {
-      position:absolute;
-      bottom: .5rem;
-      left: 50%;
-    }
+    
   }
-  .edit-buttons {
+  .edit-ui {
     position: absolute;
     right: .5rem;
     bottom: .5rem;
 
-    .edit, .delete {
+    .edit-ui-button {
       border: 1px solid black;
       border-radius: 3px;
-      width: 3rem;
-      margin: 5px;
+      width: 2.6rem;
+      height: 1.75rem;
+      margin: 1px;
       float: right;
+      text-align: center;
     }
   }
 }
@@ -137,25 +212,19 @@
     }
   }
 
-  .most-recent-review {
-    .most-recent-tag {
-      border: 1px solid red;
-      background-color: pink;
-      text-align: center;
-      position: absolute;
-      width: 8rem;
-      font-size: 1.2rem;
-      top: -.5rem;
-      left: -.5rem;
-      z-index: 4;
-      margin: 0;
-    }
+  inc-dec-button {
+    font-size: 2rem;
   }
 
   select {
     font-size: 2rem;
   }
-  
+
+  .loading-bar {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0 auto;
+  }
   @media (orientation: portrait) {
     .navbar {
       flex-direction: column;

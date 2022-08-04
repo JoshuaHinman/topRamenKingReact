@@ -1,7 +1,7 @@
 import {useRef, useEffect, useState} from 'react'
 import Review from './Review.js';
 
-const ReviewsDisplay = ({reviews, setReviews, onEdit, allowScrollLoading, loggedIn}) => {
+const ReviewsDisplay = ({flashMessage, setFlashMessage, reviews, setReviews, onEdit, onDelete, allowScrollLoading, loggedIn}) => {
     const [loading,setLoading] = useState(false);
     const lastItemRef  = useRef(null);
     const [page, setPage] = useState(1);
@@ -61,8 +61,8 @@ const ReviewsDisplay = ({reviews, setReviews, onEdit, allowScrollLoading, logged
     return (
         <div className="reviews-display">
           {reviews.map((review, idx, arr) => 
-               <Review key={review._id} review={review} onEdit={onEdit} loggedIn={loggedIn}/>)}    
-          <p ref={lastItemRef}>{loading && "Loading.."}.</p>
+               <Review key={review._id} review={review} onEdit={onEdit} onDelete={onDelete} loggedIn={loggedIn}/>)}    
+          <p className="loading-bar" ref={lastItemRef}>{loading && "Loading.."}.</p>
         </div>
     )
 }

@@ -36,6 +36,7 @@
 }
 
 .modal {
+  position: relative;
   background-color: whitesmoke;
   border: 5px solid black;
   width: 75%;
@@ -46,6 +47,56 @@
   font-size: 2rem;
   width: 75%;
   margin: 0 auto;
+}
+.modal input[type=password] {
+  font-size: 2rem;
+  width: 75%;
+  margin: 0 auto;
+}
+.modal input[type=submit] {
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.modal input[type=button] {
+  font-size: 1.5rem;
+  min-width: 1.75rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.modal button {
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.modal .done-button {
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+  text-align: center;
+  font-size: 3rem;
+  border: 2px solid yellow;
+  border-radius: 10px;
+  background-color: lightyellow;
+}
+.modal textarea {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  resize: none;
+  width: 75%;
+  height: 10rem;
+}
+.modal .x-button {
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: pink;
+  font-size: 1.75rem;
+  color: white;
+  width: 2rem;
+  text-align: center;
+  position: absolute;
+  top: 0.15rem;
+  right: 0.15rem;
 }
 .modal .half-icon {
   position: relative;
@@ -58,6 +109,25 @@
   height: 100%;
   background-color: whitesmoke;
   opacity: 1;
+}
+
+.photo-button {
+  margin: 0 auto;
+  text-align: center;
+  font-size: x-large;
+  border: 2px solid grey;
+  border-radius: 10px;
+  background-color: lightgrey;
+  color: black;
+}
+
+.image-loader {
+  margin: 0 auto;
+  width: 60%;
+}
+
+input[type=file] {
+  display: none;
 }
 
 .reviews-display {
@@ -91,22 +161,19 @@
 .review-container main .review-content {
   width: 600px;
 }
-.review-container main .posted-by {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 50%;
-}
-.review-container .edit-buttons {
+.review-container .edit-ui {
   position: absolute;
   right: 0.5rem;
   bottom: 0.5rem;
 }
-.review-container .edit-buttons .edit, .review-container .edit-buttons .delete {
+.review-container .edit-ui .edit-ui-button {
   border: 1px solid black;
   border-radius: 3px;
-  width: 3rem;
-  margin: 5px;
+  width: 2.6rem;
+  height: 1.75rem;
+  margin: 1px;
   float: right;
+  text-align: center;
 }
 
 .rating {
@@ -125,21 +192,18 @@
   opacity: 1;
 }
 
-.most-recent-review .most-recent-tag {
-  border: 1px solid red;
-  background-color: pink;
-  text-align: center;
-  position: absolute;
-  width: 8rem;
-  font-size: 1.2rem;
-  top: -0.5rem;
-  left: -0.5rem;
-  z-index: 4;
-  margin: 0;
+inc-dec-button {
+  font-size: 2rem;
 }
 
 select {
   font-size: 2rem;
+}
+
+.loading-bar {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0 auto;
 }
 
 @media (orientation: portrait) {
