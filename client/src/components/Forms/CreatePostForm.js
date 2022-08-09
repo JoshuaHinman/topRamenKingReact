@@ -10,6 +10,7 @@ const CreatePostForm = ({close, setReviews, loggedIn}) => {
     const [text, setText] = useState(''); 
     const [ratingsArray, setRatingsArray] = useState([]);
     const [imageSrc, setImageSrc] = useState();
+    const [validateMessage, setValidateMessage] = useState([]);
 
     const URL = "/reviews/create";
 
@@ -28,6 +29,27 @@ const CreatePostForm = ({close, setReviews, loggedIn}) => {
         });
     }
 
+    const validateData = (data) => {
+        const message = [];
+        const title = data.get('title');
+        const image = data.get('file');
+        console.log(title)
+        if(!title) {
+          message.push('Your post needs a title');
+        }
+        if(image === "undefined") {
+          message.push('Your post needs a photo');
+        }
+        if (message.length > 0) {
+          console.log(message);
+          setValidateMessage(message);
+          return false;
+        } else {
+          console.log('no errors')
+          return true;
+        }
+    }
+
     const submitForm = (event) => {
       event.preventDefault();
       var data = new FormData();
@@ -36,18 +58,20 @@ const CreatePostForm = ({close, setReviews, loggedIn}) => {
       data.append("text", text);
       data.append("ratings", JSON.stringify(ratingsArray));
       data.append("file", imageSrc);
-      fetch(URL,
-          { method: 'post',
-            body: data
-          })
-      .then(res => res.json())
-      .then((res) => {
-          console.log(res);
-          //reset page
-          setReviews([]);
-          close("New post created");
-      })
-      .catch(e => console.log(e))
+      if (validateData(data)) {
+        fetch(URL,
+            { method: 'post',
+              body: data
+            })
+        .then(res => res.json())
+        .then((res) => {
+            console.log(res);
+            //reset page
+            setReviews([]);
+            close("New post created");
+        })
+        .catch(e => console.log(e))
+      }
     }
 
 
@@ -69,6 +93,7 @@ const CreatePostForm = ({close, setReviews, loggedIn}) => {
                 </form>
                 <div></div><br/>
                 <FileInput getImage={getImage}/>
+                {validateMessage.map((message) => <p key={message} className="validation-error">{message}</p>)}
                 <div className="done-button" onClick={submitForm}>Done</div>
             </div>) : 
             <h4>You need to login to post a review</h4>

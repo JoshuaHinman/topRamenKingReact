@@ -46,15 +46,30 @@
   margin: 10px auto;
   font-size: 2rem;
 
-  input[type=text] {
-    font-size: 2rem;
-    width:75%;
+  form {
     margin: 0 auto;
+    width: 75%;
+  }
+
+  textarea {
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    resize: none;
+    width: 100%;
+    height: 10rem;
+    background-color: #def;
+  }
+
+  input[type=text] {
+    font-size: 1.5rem;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #def;
   }
 
   input[type=password] {
     font-size: 2rem;
-    width:75%;
+    width:90%;
     margin: 0 auto;
   }
 
@@ -71,6 +86,10 @@
     border-radius: 5px;
   }
 
+  input[type=file] {
+    display: none;
+  }
+
   button {
     font-size: 1.5rem;
     border: 1px solid black;
@@ -80,6 +99,7 @@
   .done-button {
     display: block;
     margin: 0 auto;
+    margin-bottom: .5rem;
     width: 30%;
     text-align: center;
     font-size: 3rem;
@@ -88,13 +108,10 @@
     background-color: lightyellow;
   }
 
-  textarea {
-    font-size: 1.5rem;
-    line-height: 1.5em;
-    resize: none;
-    width: 75%;
-    height: 10rem;
-}
+  .validation-error {
+    color: red;
+    text-align: center;
+  }
 
   .x-button {
     border: 1px solid red;
@@ -121,26 +138,39 @@
     background-color: whitesmoke;
     opacity: 1;
   }
-}
 
-.photo-button {
-  margin: 0 auto;
-  text-align: center;
-  font-size: x-large;
-  border: 2px solid grey;
-  border-radius: 10px;
-  background-color: lightgrey;
-  color: black;
-}
+  .image-loader {
+    position: relative;
+    margin: 0 auto;
+    width: 60%;
 
-.image-loader {
-  margin: 0 auto;
-  width: 60%;
+    .photo-button {
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.5rem;
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: #eee;
+      color: black;
+    }
+    label {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    input[type=button] {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    canvas {
+      padding-bottom: .5rem;
+      margin: auto;
+      display: block;
+    }
+  }
+  
 }
-input[type=file] {
-  display: none;
-}
-
 
 .reviews-display {
   width: 100%;
@@ -225,6 +255,7 @@ input[type=file] {
     font-size: 1.5rem;
     margin: 0 auto;
   }
+
   @media (orientation: portrait) {
     .navbar {
       flex-direction: column;

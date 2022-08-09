@@ -43,14 +43,27 @@
   margin: 10px auto;
   font-size: 2rem;
 }
-.modal input[type=text] {
-  font-size: 2rem;
-  width: 75%;
+.modal form {
   margin: 0 auto;
+  width: 75%;
+}
+.modal textarea {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  resize: none;
+  width: 100%;
+  height: 10rem;
+  background-color: #def;
+}
+.modal input[type=text] {
+  font-size: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #def;
 }
 .modal input[type=password] {
   font-size: 2rem;
-  width: 75%;
+  width: 90%;
   margin: 0 auto;
 }
 .modal input[type=submit] {
@@ -64,6 +77,9 @@
   border: 1px solid black;
   border-radius: 5px;
 }
+.modal input[type=file] {
+  display: none;
+}
 .modal button {
   font-size: 1.5rem;
   border: 1px solid black;
@@ -72,6 +88,7 @@
 .modal .done-button {
   display: block;
   margin: 0 auto;
+  margin-bottom: 0.5rem;
   width: 30%;
   text-align: center;
   font-size: 3rem;
@@ -79,12 +96,9 @@
   border-radius: 10px;
   background-color: lightyellow;
 }
-.modal textarea {
-  font-size: 1.5rem;
-  line-height: 1.5em;
-  resize: none;
-  width: 75%;
-  height: 10rem;
+.modal .validation-error {
+  color: red;
+  text-align: center;
 }
 .modal .x-button {
   border: 1px solid red;
@@ -110,24 +124,34 @@
   background-color: whitesmoke;
   opacity: 1;
 }
-
-.photo-button {
-  margin: 0 auto;
-  text-align: center;
-  font-size: x-large;
-  border: 2px solid grey;
-  border-radius: 10px;
-  background-color: lightgrey;
-  color: black;
-}
-
-.image-loader {
+.modal .image-loader {
+  position: relative;
   margin: 0 auto;
   width: 60%;
 }
-
-input[type=file] {
-  display: none;
+.modal .image-loader .photo-button {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #eee;
+  color: black;
+}
+.modal .image-loader label {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.modal .image-loader input[type=button] {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modal .image-loader canvas {
+  padding-bottom: 0.5rem;
+  margin: auto;
+  display: block;
 }
 
 .reviews-display {

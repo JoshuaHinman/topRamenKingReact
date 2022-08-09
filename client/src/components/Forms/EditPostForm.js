@@ -57,7 +57,7 @@ const EditPostForm = ({close, review, setReviews}) => {
 
 
     return (
-        <div id="post-layout" autofocus>
+        <div id="post-layout">
             <form encType="multipart/form-data" id="post-form-data">
                 <fieldset>
                     <h3>Edit Review</h3>
