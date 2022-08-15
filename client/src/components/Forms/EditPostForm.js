@@ -1,15 +1,18 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
+import AppContext from '../../AppContext.js'
 import FormInput from './FormInput.js'
 import RatingController from './RatingController.js'
 import FileInput from '../ImageLoader/FileInput.js'
 
 
-const EditPostForm = ({close, review, setReviews}) => {
+const EditPostForm = ({close, review}) => {
     const [title, setTitle] = useState(review.title); 
     const [subtitle, setSubtitle] = useState(review.subtitle); 
     const [text, setText] = useState(review.text); 
     const [ratingsArray, setRatingsArray] = useState(review.ratings);
     const [imageSrc, setImageSrc] = useState(null);
+    const ctx = useContext(AppContext);
+    const setReviews = ctx.setReviews;
 
     const URL = `/reviews/edit/${review._id}`;
 

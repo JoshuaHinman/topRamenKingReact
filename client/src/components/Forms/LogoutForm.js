@@ -1,13 +1,16 @@
-const LogoutForm = (props) => {
+import AppContext from '../../AppContext.js'
+import {useContext} from 'react'
 
+const LogoutForm = ({close}) => {
+    const ctx = useContext(AppContext);
     const URL = "/users/logout";
     const submitForm = (event) => {
       event.preventDefault();
       fetch(URL, {method: 'post'})
       .then(r => console.log(r))
       .then((d) => {
-          props.setLoggedIn({username: null, id: null, signupDate: null});
-          props.close('Logged Out.');
+          ctx.setLoggedIn({username: null, id: null, signupDate: null});
+          close('Logged Out.');
       })
       .catch(e => console.log(e))
     }

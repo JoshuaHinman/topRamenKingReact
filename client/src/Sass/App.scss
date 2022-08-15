@@ -16,6 +16,11 @@
    font-family: 'Times New Roman', "Goudy Old Style", Times, serif ;
 }
 
+.login {
+  text-align: right;
+  font-size: 1.3rem;
+}
+
 
 .navbar {
   width: 100%;
@@ -46,6 +51,9 @@
   margin: 10px auto;
   font-size: 2rem;
 
+  p {
+    text-align: center;
+  }
   form {
     margin: 0 auto;
     width: 75%;
@@ -206,6 +214,9 @@
       width: 600px;
     }
 
+    .rating-display {
+      width: 80%
+    }
     
   }
   .edit-ui {
@@ -257,13 +268,28 @@
   }
 
   @media (orientation: portrait) {
+    html {
+      font-size: 32px;
+    }
+    
     .navbar {
       flex-direction: column;
       align-items: center; 
+
+      .navbar-button {
+        width: 100%;
+        border-radius: 10px;
+        font-size: 2rem;
+        padding-bottom: 15px;
+      }
     }
-  
-    .navbar-button {
-      width: 70%;
-      padding-bottom: 10px;
+
+    .modal {
+      width: 100%;
+    }
+
+    .review-container main{
+      display: flex;
+      flex-direction: column;
     }
   }

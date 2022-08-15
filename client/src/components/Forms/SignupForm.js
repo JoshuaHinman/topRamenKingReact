@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import FormInput from './FormInput.js'
 
-const SignupForm = (props) => {
+const SignupForm = ({close}) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -28,7 +28,7 @@ const SignupForm = (props) => {
             if (data.message)
                 handleFeedback(data.message);
             else
-                props.close('Successfully signed up as ' + data.username);})
+                close('Successfully signed up as ' + data.username);})
         .catch(e => console.log(e));
     }
 

@@ -63,7 +63,7 @@ const RatingController = ({getRatings , initRatings = null}) => {
                             <option value="🌶️">🌶️</option>
                         </select>
                         <input type="range" className="rating-slider" name="rating" min="0" max="5" step=".5" value={rating} onChange={(e) => {changeRating(e,idx)}} />
-                        <span className="rating-display" >{icons[idx].repeat(rating)}{halfIcon(icons[idx], rating)}</span>
+                        <span>{icons[idx].repeat(rating)}{halfIcon(icons[idx], rating)}</span>
                         </div>
                     )
             })}

@@ -1,9 +1,11 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import AppContext from '../../AppContext.js'
 import FormInput from './FormInput.js'
 
-const LoginForm = (props) => {
+const LoginForm = ({close}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const ctx = useContext(AppContext);
    
     const URL = "/users/login";
     const submitForm = (event) => {
@@ -16,9 +18,8 @@ const LoginForm = (props) => {
       .then(res => res.json())
       .then((data) =>{
         data.signupDate = data.signupDate.split('T')[0];
-        props.setLoggedIn({...data});
-        
-        props.close();
+        ctx.setLoggedIn({...data});
+        close();
       })
       .catch(e => console.log(e))
     }

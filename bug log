@@ -1,0 +1,61 @@
+bugs:
+
+
+0 search results should maybe trigger a refresh OR not overwrite current reviews array, only showing message modal
+
+text and rating-display dont scale  well
+
+in heroku - new post does not refresh page
+
+
+mobile responsiveness? change width values in the @media section
+
+8/13
+	fixed - flash message font should match form font
+	fixed - .home route - Changed it to '/' - need to test on heroku
+	added - ' n results for "search query" ' flash message
+	refactored - created AppContext for state that is basically global
+	refactored - open/close modal methods cut, just using one setter method
+
+8/9
+fixed - new review should alert when failed - added form validation for title and image
+fixed - file input should only accept jpeg, png
+
+
+8/6
+fixed for now - styling on forms and modals should be more polished
+fixed - edit form should focus() on top of page - window.scrollTo(0, 0);
+
+8/1
+fixed- intersection observer should deactivate when search results are returned 
+	scrollLoading is a new state value that determines if the observer will load anything
+	it actually sets the current page to -1, which ends the scrolling progress
+
+fixed- delete / edit buttons only show to correct user
+
+added- reviews appear in newest to oldest order
+
+fixed - edit form half icons
+
+fixed - new and edited posts do not update in DOM until reload.
+	New or Edit submit will reset reviews and page counter, triggers fetch from the start
+
+fixed - edit form - image.data is null
+fixed - search doesnt convert image to dataurl
+
+fixed - validate logins on appropriate routes
+
+fixed - create new post should display 'need to log in' message if not logged in
+fixed - textarea in post/edit form
+8/4
+fixed - delete function and review deleted message
+
+fixed - delete review needs a confirm button
+
+
+
+
+
+
+
+

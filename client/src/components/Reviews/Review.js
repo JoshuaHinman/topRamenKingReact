@@ -10,7 +10,7 @@ const halfIcon = (icon, number) => {
     }
 }
 
-const Review = ({review, onclick, onEdit, onDelete, loggedIn}) => {
+const Review = ({review, onEdit, onDelete, loggedIn}) => {
     const [deleteClick, setDeleteClick] = useState(false);
 
     return (
@@ -25,7 +25,7 @@ const Review = ({review, onclick, onEdit, onDelete, loggedIn}) => {
                         <div className="rating">
                             {review.ratings.map((rating) => {
                                 return (<div key={rating.icon + Math.floor(Math.random() * 1000)}>
-                                    <p>{rating.icon.repeat(rating.rating)}
+                                    <p className="rating-display">{rating.icon.repeat(rating.rating)}
                                         {halfIcon(rating.icon, rating.rating)}</p>
                                 </div>)
                                 })}

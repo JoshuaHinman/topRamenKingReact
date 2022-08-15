@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import Modal from './Modal.js'
 import SearchForm from '../Forms/SearchForm.js'
 import LoginForm from '../Forms/LoginForm.js'
@@ -7,36 +6,37 @@ import SignupForm from '../Forms/SignupForm.js'
 import ProfileForm from '../Forms/ProfileForm.js'
 import CreatePostForm from '../Forms/CreatePostForm.js'
 import EditPostForm from '../Forms/EditPostForm.js'
+import AppContext from '../../AppContext.js'
+import {useContext} from 'react'
 
-const ModalDisplay = ({flashMessage, setFlashMessage, closeModal, loggedIn, setLoggedIn, activeModal, reviews, setReviews, editReview, setScrollLoading, addNewReview}) => {
-    //console.log(editReview);
-    const closeModalWithMessage = (message = null) => {
-        //flash message modal is optional, modal will close if no message
-        if (message) { 
-            setFlashMessage(message);
-            closeModal("flash-message-modal");
-        } else {
-            closeModal();
-        }
+const ModalDisplay = ({closeModal, activeModal, editReview, setScrollLoading}) => {
+  const ctx = useContext(AppContext);
+  const closeWithMessage = (message = null) => {
+  //flash message modal is optional, modal will close if no message
+    if (message) { 
+      ctx.setFlashMessage(message);
+      closeModal("flash-message-modal");
+    } else {
+      closeModal();
     }
-    const MODALS = [{label: "search-modal", component: <SearchForm close={closeModalWithMessage} reviews={reviews} setReviews={setReviews} setScrollLoading={setScrollLoading}/>},
-                {label: "signup-modal", component: <SignupForm close={closeModalWithMessage}/>},
-                {label: "profile-modal", component: <ProfileForm loggedIn={loggedIn}/>},
-                {label: "login-modal", component: <LoginForm  close={closeModal} setLoggedIn={setLoggedIn}/>},
-                {label: "logout-modal", component: <LogoutForm close={closeModalWithMessage} setLoggedIn={setLoggedIn}/>},
-                {label: "create-post-modal", component: <CreatePostForm close={closeModalWithMessage} setReviews={setReviews} loggedIn={loggedIn}/>},
-                {label: "edit-post-modal", component: <EditPostForm close={closeModalWithMessage} review={editReview} setReviews={setReviews}/>},
-                {label: "flash-message-modal", component: <h4>{flashMessage}</h4>},
-                {label: "confirm-delete-modal", component: <LogoutForm close={closeModalWithMessage} setLoggedIn={setLoggedIn}/>},
-            ];
+  }
+	const MODALS = [{label: "search-modal", component: <SearchForm close={closeWithMessage} setScrollLoading={setScrollLoading}/>},
+									{label: "signup-modal", component: <SignupForm close={closeWithMessage}/>},
+									{label: "profile-modal", component: <ProfileForm />},
+									{label: "login-modal", component: <LoginForm  close={closeWithMessage}/>},
+									{label: "logout-modal", component: <LogoutForm close={closeWithMessage}/>},
+									{label: "create-post-modal", component: <CreatePostForm close={closeWithMessage}/>},
+									{label: "edit-post-modal", component: <EditPostForm close={closeWithMessage} review={editReview}/>},
+									{label: "flash-message-modal", component: <p>{ctx.flashMessage}</p>},
+					];
 
-    return (
-        <>
-            {MODALS.map(modal => 
-                (activeModal === modal.label) && <Modal key={modal.label} close={closeModal}>{modal.component}</Modal>
-            )}
-        </>
-    )
+	return (
+    <>
+      {MODALS.map(modal => 
+        (activeModal === modal.label) && <Modal key={modal.label} close={closeModal}>{modal.component}</Modal>
+      )}
+    </>
+	)
 }
 
 export default ModalDisplay;

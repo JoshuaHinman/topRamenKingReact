@@ -1,16 +1,18 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import AppContext from '../../AppContext.js'
 import FormInput from './FormInput.js'
 import RatingController from './RatingController.js'
 import FileInput from '../ImageLoader/FileInput.js'
 
 
-const CreatePostForm = ({close, setReviews, loggedIn}) => {
+const CreatePostForm = ({close}) => {
     const [title, setTitle] = useState(''); 
     const [subtitle, setSubtitle] = useState(''); 
     const [text, setText] = useState(''); 
     const [ratingsArray, setRatingsArray] = useState([]);
     const [imageSrc, setImageSrc] = useState();
     const [validateMessage, setValidateMessage] = useState([]);
+    const ctx = useContext(AppContext);
 
     const URL = "/reviews/create";
 
@@ -67,7 +69,7 @@ const CreatePostForm = ({close, setReviews, loggedIn}) => {
         .then((res) => {
             console.log(res);
             //reset page
-            setReviews([]);
+            ctx.setReviews([]);
             close("New post created");
         })
         .catch(e => console.log(e))
@@ -76,7 +78,7 @@ const CreatePostForm = ({close, setReviews, loggedIn}) => {
 
 
     return (
-         loggedIn.username ?
+         ctx.loggedIn.username ?
             (<div id="post-layout">
                 <form encType="multipart/form-data" id="post-form-data">
                     <fieldset>
@@ -96,7 +98,7 @@ const CreatePostForm = ({close, setReviews, loggedIn}) => {
                 {validateMessage.map((message) => <p key={message} className="validation-error">{message}</p>)}
                 <div className="done-button" onClick={submitForm}>Done</div>
             </div>) : 
-            <h4>You need to login to post a review</h4>
+            <p>You need to login to post a review</p>
     )
 }
 

@@ -1,17 +1,23 @@
-import {useRef, useEffect, useState} from 'react'
+import {useRef, useEffect, useState, useContext} from 'react'
+import AppContext from '../../AppContext.js'
 import Review from './Review.js';
 
-const ReviewsDisplay = ({flashMessage, setFlashMessage, reviews, setReviews, onEdit, onDelete, allowScrollLoading, loggedIn}) => {
+const ReviewsDisplay = ({onEdit, onDelete, allowScrollLoading}) => {
     const [loading,setLoading] = useState(false);
     const lastItemRef  = useRef(null);
     const [page, setPage] = useState(1);
+    const ctx = useContext(AppContext);
 
     const imgSrcString = (image) => {
       //convert image data to dataUrl
       return `data:image/${image.contentType};base64, ${image.data.toString('base64')}`;
   }
     useEffect(() => {
-      if (allowScrollLoading === false) setPage(-1);
+      if (allowScrollLoading === false) {
+        setPage(-1)
+      } else {
+        setPage(1);
+      }
     },[allowScrollLoading])
 
     useEffect (() => {
@@ -25,7 +31,7 @@ const ReviewsDisplay = ({flashMessage, setFlashMessage, reviews, setReviews, onE
               return review;
             })
             data.reverse();
-            setReviews(reviews.concat(data));
+            ctx.setReviews(ctx.reviews.concat(data));
             setPage(page + 1)
           } else {
             setPage(-1); //end scroll loading
@@ -45,7 +51,7 @@ const ReviewsDisplay = ({flashMessage, setFlashMessage, reviews, setReviews, onE
         });
 
         //reset page display on new or edited post
-        if (reviews.length === 0 && allowScrollLoading) setPage(1);
+        if (ctx.reviews.length === 0 && allowScrollLoading) setPage(1);
       
         //observe last item
         const last = lastItemRef.current;
@@ -56,12 +62,16 @@ const ReviewsDisplay = ({flashMessage, setFlashMessage, reviews, setReviews, onE
         //remove observer on unmount
         if (last) observer.unobserve(last);
         }
-      },[reviews, page, setReviews]);
+      },[ctx.reviews, page, ctx.setReviews]);
 
     return (
         <div className="reviews-display">
-          {reviews.map((review, idx, arr) => 
-               <Review key={review._id} review={review} onEdit={onEdit} onDelete={onDelete} loggedIn={loggedIn}/>)}    
+          {ctx.reviews.map((review, idx, arr) => 
+               <Review key={review._id}
+                        review={review}
+                        onEdit={onEdit}
+                        onDelete={onDelete}
+                        loggedIn={ctx.loggedIn}/>)}    
           <p className="loading-bar" ref={lastItemRef}>{loading && "Loading.."}.</p>
         </div>
     )
