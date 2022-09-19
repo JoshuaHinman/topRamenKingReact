@@ -12,7 +12,7 @@
 .title {
    text-align: center;
    font-size: 1.8rem;
-   margin-bottom: 1rem;
+   margin-bottom: .5rem;
    font-family: 'Times New Roman', "Goudy Old Style", Times, serif ;
 }
 
@@ -26,7 +26,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 
   a {
     text-decoration: none;
@@ -35,8 +35,8 @@
   .navbar-button {
     text-align: center;
     font-size: x-large;
-    border: 2px solid white;
     border-radius: 10px;
+    margin-bottom: .1rem;
     background-color: black;
     color: white;
     width: 18%;
@@ -49,7 +49,7 @@
   border: 5px solid black;
   width: 75%;
   margin: 10px auto;
-  font-size: 2rem;
+  font-size: 1.5rem;
 
   p {
     text-align: center;
@@ -216,7 +216,8 @@
     }
 
     .rating-display {
-      width: 80%
+      width: 80%;
+      text-shadow: 1px 1px black;
     }
     
   }
@@ -278,14 +279,19 @@
       align-items: center; 
 
       .navbar-button {
-        width: 100%;
+        width: 90%;
         border-radius: 10px;
-        font-size: 2rem;
-        padding-bottom: 15px;
+        box-shadow: inset 0em -4px 6px 1px white;
+        font-size: 1.25rem;
+        padding-bottom: 10px;
       }
     }
     .modal {
+      font-size: 1rem;
       width: 100%;
+      p {
+        padding: .8rem;
+      }
     }
     .review-container {
       
@@ -300,6 +306,7 @@
       }
       .review-content {
         width: 100%;
+        margin-left: .2rem;
         .rating {
           margin: 0 auto;
           width: 70%;
