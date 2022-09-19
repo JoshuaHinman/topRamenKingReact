@@ -30,7 +30,7 @@ const Review = ({review, onEdit, onDelete, loggedIn}) => {
                                 </div>)
                                 })}
                         </div>
-                        <h4 >{review.text}</h4>
+                        <h5>{review.text}</h5>
                         <p className="posted-by">Posted by {review.userid.username}</p>
 
                     </div>

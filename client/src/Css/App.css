@@ -214,6 +214,7 @@
 
 .rating {
   background-color: #fdf5e6;
+  width: 50%;
 }
 .rating .half-icon {
   position: relative;
@@ -259,8 +260,27 @@ select {
   .modal {
     width: 100%;
   }
+  .review-container {
+    width: 100%;
+  }
   .review-container main {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .review-container .img-container {
+    width: 100%;
+  }
+  .review-container .review-content {
+    width: 100%;
+  }
+  .review-container .review-content .rating {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+  }
+  .review-container .review-content h1, .review-container .review-content h2, .review-container .review-content p {
+    margin: 0 auto;
+    width: 100%;
   }
 }
