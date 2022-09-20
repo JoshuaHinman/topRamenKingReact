@@ -20,8 +20,8 @@ const Review = ({review, onEdit, onDelete, loggedIn}) => {
                         <img alt="noodles" src={review.image[0]}/>
                     </div>
                     <div className="review-content">
-                        <h1>{review.title}</h1>
-                        <h2>{review.subtitle}</h2><br/>
+                        <h2>{review.title}</h2>
+                        <h3>{review.subtitle}</h3><br/>
                         <div className="rating">
                             {review.ratings.map((rating) => {
                                 return (<div key={rating.icon + Math.floor(Math.random() * 1000)}>
