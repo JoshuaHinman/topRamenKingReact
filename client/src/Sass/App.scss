@@ -289,12 +289,15 @@
   }
 
   @media (orientation: portrait) {
+    .App {
+      width: 97%
+    }
     html {
       font-size: 28px;
     }
     .title {
       text-align: center;
-      font-size: .65rem;
+      font-size: .63rem;
     }
     .navbar {
       flex-direction: column;
