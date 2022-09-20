@@ -103,7 +103,7 @@ const FileInput = ({getImage, fileObj}) => {
         <div class="photo-buttons">
           <label htmlFor="photo" className="photo-button">Add Photo</label>
           <input type="file" id="photo" accept="image/png, image/jpeg" onChange={ e => handleFiles(e)} />
-          <input type="button" className="photo-button" value="Rotate 90°" onClick={rotateImage} />
+          <input type="button" className="photo-button" value="Rotate 90°" onClick={rotateImage}/>
         </div>
       <br/>
         <canvas ref={croppedCanvasRef} width="300" height="300" style={{"width": "300px", "height":"300px"}}></canvas>

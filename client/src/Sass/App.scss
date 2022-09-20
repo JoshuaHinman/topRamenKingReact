@@ -40,6 +40,7 @@
     background-color: black;
     color: white;
     width: 18%;
+    cursor: pointer;
   }
 }
   
@@ -93,6 +94,7 @@
     min-width: 1.75rem;
     border: 1px solid black;
     border-radius: 5px;
+    cursor: pointer;
   }
 
   input[type=file] {
@@ -103,6 +105,7 @@
     font-size: 1.5rem;
     border: 1px solid black;
     border-radius: 5px;
+    cursor: pointer;
   }
 
   .done-button {
@@ -115,6 +118,7 @@
     border: 2px solid yellow;
     border-radius: 10px;
     background-color: lightyellow;
+    cursor: pointer;
   }
 
   .validation-error {
@@ -133,6 +137,7 @@
     position: absolute;
     top: 0rem;
     right: 0rem;
+    cursor: pointer;
   }
 
   .half-icon {
@@ -165,16 +170,23 @@
       border-radius: 5px;
       background-color: #eee;
       color: black;
+      cursor: pointer;
     }
-    label {
+
+    .photo-button:hover {
+      background-color: #333;
+    }
+    label{
       position: absolute;
       left: 0;
       top: 0;
+      cursor: pointer;
     }
     input[type=button] {
       position: absolute;
       right: 0;
       top: 0;
+      cursor: pointer;
     }
     canvas {
       padding-bottom: .5rem;
@@ -262,10 +274,12 @@
 
   inc-dec-button {
     font-size: 2rem;
+    cursor: pointer;
   }
 
   select {
     font-size: 2rem;
+    cursor: pointer;
   }
 
   .loading-bar {
@@ -280,7 +294,7 @@
     }
     .title {
       text-align: center;
-      font-size: 1rem;
+      font-size: .65rem;
     }
     .navbar {
       flex-direction: column;

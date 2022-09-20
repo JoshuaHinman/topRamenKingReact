@@ -38,6 +38,7 @@
   background-color: black;
   color: white;
   width: 18%;
+  cursor: pointer;
 }
 
 .modal {
@@ -85,6 +86,7 @@
   min-width: 1.75rem;
   border: 1px solid black;
   border-radius: 5px;
+  cursor: pointer;
 }
 .modal input[type=file] {
   display: none;
@@ -93,6 +95,7 @@
   font-size: 1.5rem;
   border: 1px solid black;
   border-radius: 5px;
+  cursor: pointer;
 }
 .modal .done-button {
   display: block;
@@ -104,6 +107,7 @@
   border: 2px solid yellow;
   border-radius: 10px;
   background-color: lightyellow;
+  cursor: pointer;
 }
 .modal .validation-error {
   color: red;
@@ -120,6 +124,7 @@
   position: absolute;
   top: 0rem;
   right: 0rem;
+  cursor: pointer;
 }
 .modal .half-icon {
   position: relative;
@@ -151,16 +156,22 @@
   border-radius: 5px;
   background-color: #eee;
   color: black;
+  cursor: pointer;
+}
+.modal .image-loader .photo-button:hover {
+  background-color: #333;
 }
 .modal .image-loader label {
   position: absolute;
   left: 0;
   top: 0;
+  cursor: pointer;
 }
 .modal .image-loader input[type=button] {
   position: absolute;
   right: 0;
   top: 0;
+  cursor: pointer;
 }
 .modal .image-loader canvas {
   padding-bottom: 0.5rem;
@@ -237,10 +248,12 @@
 
 inc-dec-button {
   font-size: 2rem;
+  cursor: pointer;
 }
 
 select {
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .loading-bar {
@@ -255,7 +268,7 @@ select {
   }
   .title {
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.65rem;
   }
   .navbar {
     flex-direction: column;

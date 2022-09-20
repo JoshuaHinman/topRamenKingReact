@@ -34,12 +34,12 @@ router.post('/login', (req, res) => {
                     res.status(200).json({id: user._id, username: user.username, signupDate: user.signupDate, postCount: count});
                 } else {
                     console.log("declined: wrong password")
-                    res.status(500).json({message: 'Wrong password'});
+                    res.status(500).json({message: 'password'});
                 }
             })
         } else {
             console.log("declined: no username match")
-             res.status(500).json({message: 'No username match'});
+             res.status(500).json({message: 'username'});
         }
     } )
 });

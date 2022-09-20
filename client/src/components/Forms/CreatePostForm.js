@@ -98,7 +98,11 @@ const CreatePostForm = ({close}) => {
                 {validateMessage.map((message) => <p key={message} className="validation-error">{message}</p>)}
                 <div className="done-button" onClick={submitForm}>Done</div>
             </div>) : 
-            <p>You need to login to post a review</p>
+            <>
+              <p>You need to login to post a review</p>
+              <p>Sign up to create a new profile</p>
+              <p>or simply log in with "guest" : "pass"</p>
+            </>
     )
 }
 

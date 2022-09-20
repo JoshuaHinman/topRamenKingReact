@@ -38,12 +38,12 @@ const SignupForm = ({close}) => {
                 <legend>Sign Up</legend>
                 <label htmlFor="username">Username</label><br/>
                 <FormInput type="text" id="username" name="username" value={username} setter={setUsername} autoComplete="off"/>
-                {formFeedback === 'nameTaken' && <span>This user name has been taken</span>}<br/>
+                {formFeedback === 'nameTaken' && <small className="validation-error">This user name has been taken</small>}<br/>
                 <label htmlFor="password">Password</label><br/>
                 <FormInput type="text" id="password" name="password" value={password} setter={setPassword} autoComplete="off"/><br/>
                 <label htmlFor="email">Email</label><br/>
                 <FormInput type="text" id="email" name="email" value={email} setter={setEmail} autoComplete="off"/>
-                {formFeedback === 'emailTaken' && <span>This email is already in use</span>}<br/>
+                {formFeedback === 'emailTaken' && <small className="validation-error">This email is already in use</small>}<br/>
                 <input type="submit" value="Submit"/>
             </fieldset>
         </form>
