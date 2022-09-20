@@ -264,14 +264,14 @@ select {
 
 @media (orientation: portrait) {
   .App {
-    width: 97%;
+    width: 95%;
   }
   html {
     font-size: 28px;
   }
   .title {
     text-align: center;
-    font-size: 0.63rem;
+    font-size: 0.61rem;
   }
   .navbar {
     flex-direction: column;
