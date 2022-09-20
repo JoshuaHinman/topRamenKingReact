@@ -151,10 +151,14 @@
   .image-loader {
     position: relative;
     margin: 0 auto;
-    width: 100%;
-
+    width: 90%;
+    .photo-buttons{
+      width: 90%;
+    }
     .photo-button {
-      margin: 0;
+      display:inline-block;
+      width: 40%;
+      margin: 0 4%;
       text-align: center;
       font-size: 1.5rem;
       border: 1px solid black;
@@ -302,20 +306,43 @@
       .done-button {
         width: 80%;
       }
+
+      .image-loader {
+        position: relative;
+        margin: 0 auto;
+        width: 90%;
+        .photo-buttons{
+          width: 70%;
+        }
+        .photo-button {
+          display:inline-block;
+          width: 40%;
+          margin: 0 9%;
+          text-align: center;
+          font-size: 1rem;
+          border: 1px solid black;
+          border-radius: 5px;
+          background-color: #eee;
+          color: black;
+        }
+        label {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        input[type=button] {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+        canvas {
+          padding-bottom: .5rem;
+          margin: auto;
+          display: block;
+        }
+      } 
     }
-    .image-loader {
-     
-      .photo-button {
-        margin: 0 -auto;
-        text-align: center;
-        font-size: 1.5rem;
-        border: 1px solid black;
-        border-radius: 5px;
-        background-color: #eee;
-        color: black;
-        width: 45%;
-      }
-    }
+
     .review-container {
       
       width: 100%;

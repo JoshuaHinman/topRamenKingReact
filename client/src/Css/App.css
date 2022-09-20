@@ -136,10 +136,15 @@
 .modal .image-loader {
   position: relative;
   margin: 0 auto;
-  width: 100%;
+  width: 90%;
+}
+.modal .image-loader .photo-buttons {
+  width: 90%;
 }
 .modal .image-loader .photo-button {
-  margin: 0;
+  display: inline-block;
+  width: 40%;
+  margin: 0 4%;
   text-align: center;
   font-size: 1.5rem;
   border: 1px solid black;
@@ -276,15 +281,39 @@ select {
   .modal .done-button {
     width: 80%;
   }
-  .image-loader .photo-button {
-    margin: 0 -auto;
+  .modal .image-loader {
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+  }
+  .modal .image-loader .photo-buttons {
+    width: 70%;
+  }
+  .modal .image-loader .photo-button {
+    display: inline-block;
+    width: 40%;
+    margin: 0 9%;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border: 1px solid black;
     border-radius: 5px;
     background-color: #eee;
     color: black;
-    width: 45%;
+  }
+  .modal .image-loader label {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .modal .image-loader input[type=button] {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .modal .image-loader canvas {
+    padding-bottom: 0.5rem;
+    margin: auto;
+    display: block;
   }
   .review-container {
     width: 100%;
