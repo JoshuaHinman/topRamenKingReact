@@ -9,7 +9,7 @@
     "devstart": "nodemon server/server.js"
   },
   "engines": {
-    "node": "17.9.0"
+    "node": "v16.17.0"
   },
   "keywords": [],
   "author": "",
