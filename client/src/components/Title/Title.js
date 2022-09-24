@@ -1,7 +1,7 @@
 const Title = () => {
     return (
         <div className="title">
-            <h1>🍜Top Ramen King👑</h1>
+            <h1>🍜<span>Top Ramen King</span>👑</h1>
         </div>
     )
 }

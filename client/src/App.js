@@ -45,18 +45,18 @@ function App() {
 
   return (
     <div className="App">
-      <Title />
-      {(loggedIn && loggedIn.username) && <p className="login">Logged in as {loggedIn.username}</p>}
-      <AppContext.Provider value={contextObj}>
-        <Navbar openModal={setActiveModal}/>
-        <ModalDisplay activeModal={activeModal}
-                      closeModal={setActiveModal}
-                      editReview={editReview}
-                      setScrollLoading={setScrollLoading}/>
-        <ReviewsDisplay onDelete={onDelete}
-                        onEdit={onEdit}
-                        allowScrollLoading={scrollLoading}/>
-      </AppContext.Provider>
+        <Title />
+        {(loggedIn && loggedIn.username) && <p className="login">Logged in as {loggedIn.username}</p>}
+        <AppContext.Provider value={contextObj}>
+          <Navbar openModal={setActiveModal}/>
+          <ModalDisplay activeModal={activeModal}
+                        closeModal={setActiveModal}
+                        editReview={editReview}
+                        setScrollLoading={setScrollLoading}/>
+          <ReviewsDisplay onDelete={onDelete}
+                          onEdit={onEdit}
+                          allowScrollLoading={scrollLoading}/>
+        </AppContext.Provider>
     </div>
   );
 }
