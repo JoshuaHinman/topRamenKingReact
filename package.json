@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "cd client && npm install && npm run build",
+    "build": "CI=false && cd client && npm install && npm run build",
+    "devBuild": "cd client && npm install && npm run devBuild",
     "start": "node server/server.js",
     "devstart": "nodemon server/server.js"
   },
